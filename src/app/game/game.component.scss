@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     img {
         width: 100%;
         object-fit: cover;
@@ -47,7 +48,7 @@ $rotationAngle: -5deg;
     30% {
         transform: scale(1) rotate($rotationAngle) translateY(-50px)translateX(50)
     }
-    70% {
+    85% {
         transform: scale(1.8) rotate($rotationAngle) translateY(-10px)
     }
     100% {

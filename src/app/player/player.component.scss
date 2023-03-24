@@ -1,21 +1,25 @@
 .player {
-    width: 300px;
+    width: 250px;
     display: flex;
     align-items: center;
-    background-color: #fff5;
-    box-shadow: 0 3px 3px #0003;
-    border-radius: 12px 0 0 12px;
-    padding: 10px 5px;
+    background-color: #51be9f36;
+    box-shadow: 0 5px 0px #51BE9F;
+    color: aliceblue;
+    border-radius: 50px 0 0 50px;
     position: absolute;
+    top: 130px;
     right: 0;
-    top: 120px;
+    padding-left: 3px;
+    z-index: 100;
     span {
+        text-align: center;
         font-size: 32px;
+        font-weight: bold;
         margin-left: 16px;
     }
     img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         object-fit: cover;
         border-radius: 50%;
     }
