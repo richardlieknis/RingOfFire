@@ -55,3 +55,9 @@ $rotationAngle: -5deg;
         transform: scale(1) rotate(0deg) translateY(-50px)translateX($dropCard);
     }
 }
+
+.btn-add {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
