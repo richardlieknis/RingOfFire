@@ -5,9 +5,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-position: center;
     img {
         width: 100%;
-        object-fit: cover;
+        object-fit: scale-down !important;
     }
 }
 

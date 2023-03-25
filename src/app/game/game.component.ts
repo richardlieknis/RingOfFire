@@ -27,8 +27,10 @@ export class GameComponent implements OnInit {
   takeCard(){
     if (!this.pickCardAnimation){
       this.currentCard = this.game.stack.pop();
-     
       this.pickCardAnimation = true;
+      this.game.currentPlayer++;
+      this.game.players;
+      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
       setTimeout(() => {
          this.game.playedCard.push(this.currentCard);
         this.pickCardAnimation = false;
@@ -41,7 +43,6 @@ export class GameComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((name: string) => {
       this.game.players.push(name);
-      console.log(this.game.players);
     });
   }
 
