@@ -15,7 +15,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { GameInfoComponent } from './game-info/game-info.component'; 
+import { GameInfoComponent } from './game-info/game-info.component';
+import { DialogShowErrorComponent } from './dialog-show-error/dialog-show-error.component'; 
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { GameInfoComponent } from './game-info/game-info.component';
     GameComponent,
     PlayerComponent,
     DialogAddPlayerComponent,
-    GameInfoComponent
+    GameInfoComponent,
+    DialogShowErrorComponent
   ],
   imports: [
     BrowserModule,

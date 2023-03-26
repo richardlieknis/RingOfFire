@@ -23,7 +23,7 @@ export class GameInfoComponent implements OnInit, OnChanges{
   ];
 
   title = 'Ring of Fire🔥';
-  description = 'Ring of Fire is a drinking game played with a standard deck of cards, with each card representing a specific action or rule. The game ends when all cards are drawn, with the last player to draw having to finish the cup in the center.';
+  description = 'Ring of Fire is a drinking game played with a standard deck of cards, with each card representing a specific action or rule. The game ends when all cards are drawn, with the last player to draw having to finish the cup in the center. Create min. 2 Players and pick a Card!';
   @Input() card: string;
 
   constructor(){}
