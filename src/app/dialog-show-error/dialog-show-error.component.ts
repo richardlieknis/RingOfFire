@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./dialog-show-error.component.scss']
 })
 export class DialogShowErrorComponent {
-
+  test: string = '';
+  testFunc(){}
 }

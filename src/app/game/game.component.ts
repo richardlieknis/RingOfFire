@@ -3,6 +3,7 @@ import { Game } from 'src/models/game';
 import { MatButtonModule } from '@angular/material/button';
  import {MatDialog, MatDialogRef} from '@angular/material/dialog'; 
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { DialogShowErrorComponent } from '../dialog-show-error/dialog-show-error.component';
 
 @Component({
   selector: 'app-game',
@@ -10,7 +11,8 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit, OnChanges {
-  pickCardAnimation = false;
+  pickCardAnimation: boolean = false;
+  enoughPlayers: boolean = false;
   currentCard: string = '';
   currentPlayer: number = 0;
   labelSpacing: number = 90;
@@ -28,14 +30,20 @@ export class GameComponent implements OnInit, OnChanges {
   }
 
   checkPlayerAmount() {
+    this.showErrorIfTooLessPlayer();
     return this.game.players.length;
+  }
+
+  showErrorIfTooLessPlayer() {
+    
   }
 
   newGame(){
       this.game = new Game();
   }
   takeCard(){
-    if (!this.pickCardAnimation && this.checkPlayerAmount() > 1){
+    if (!this.pickCardAnimation && this.checkPlayerAmount() > 1) {
+      this.enoughPlayers = true;
         this.currentCard = this.game.stack.pop();
         this.pickCardAnimation = true;
     
@@ -45,6 +53,8 @@ export class GameComponent implements OnInit, OnChanges {
         this.game.playedCard.push(this.currentCard);
         this.pickCardAnimation = false;
       }, 2500 )
+    } else if (this.checkPlayerAmount() <= 1){
+      this.openDialog();
     }
   }
 
@@ -55,7 +65,12 @@ export class GameComponent implements OnInit, OnChanges {
       if(name && name.length > 0){
         this.game.players.push(name);
         }
-    });
+     });
+   }
+  
+  openErrorDialog(): void {
+    const dialogRef = this.dialog.open(DialogShowErrorComponent);
+    console.log(dialogRef);
   }
 
 }
