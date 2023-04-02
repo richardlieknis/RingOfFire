@@ -9,5 +9,4 @@ export const environment = {
     measurementId: 'G-G11T43ZXXG',
   },
   production: true,
-  apiUrl: 'https://api.myapp.com'
 };

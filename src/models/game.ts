@@ -1,4 +1,6 @@
 export class Game {
+    public pickCardAnimation: boolean = false;
+  public currentCard: string = '';
     public players: string[] = [];
     public stack: string[] = [];
     public playedCard: string[] = [];
@@ -14,6 +16,15 @@ export class Game {
         }
 
         shuffle(this.stack);
+    }
+
+    public toJson() {
+        return {
+            players: this.players,
+            stack: this.stack,
+            playedCard: this.playedCard,
+            currentPlayer: this.currentPlayer
+        }
     }
 }
 

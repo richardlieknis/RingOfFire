@@ -9,5 +9,4 @@ export const environment = {
     measurementId: 'G-G11T43ZXXG',
   },
   production: false,
-  apiUrl: 'http://localhost:4200/api',
 };
