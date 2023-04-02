@@ -1,7 +1,8 @@
 export class Game {
     public pickCardAnimation: boolean = false;
-  public currentCard: string = '';
+    public currentCard: string = '';
     public players: string[] = [];
+    public playerImg: string[] = [];
     public stack: string[] = [];
     public playedCard: string[] = [];
     public currentPlayer: number = 0;
@@ -20,7 +21,10 @@ export class Game {
 
     public toJson() {
         return {
+            pickCardAnimation: this.pickCardAnimation,
+            currentCard: this.currentCard,
             players: this.players,
+            playerImg: this.playerImg,
             stack: this.stack,
             playedCard: this.playedCard,
             currentPlayer: this.currentPlayer
@@ -28,8 +32,8 @@ export class Game {
     }
 }
 
-function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
+function shuffle(array: string[]) {
+    let currentIndex = array.length,  randomIndex: number;
   
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
@@ -42,6 +46,5 @@ function shuffle(array) {
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex], array[currentIndex]];
     }
-  
     return array;
   }

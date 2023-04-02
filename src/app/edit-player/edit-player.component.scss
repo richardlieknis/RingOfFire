@@ -1,0 +1,19 @@
+.edit-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+img {
+    width: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #0000;
+    filter: grayscale(0.6);
+    &:hover {
+        border: 2px solid #fffe;
+        filter: grayscale(0.1);
+    }
+}

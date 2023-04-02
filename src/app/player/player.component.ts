@@ -6,7 +6,8 @@ import { Game } from 'src/models/game';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit, OnChanges{
-  @Input() name:string;
+  @Input() name: string;
+  @Input() playerImg: string = '2.jpg';
   @Input() playerActive: boolean = false;
   @Input() moreThanFive: boolean = false;
 

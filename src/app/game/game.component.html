@@ -1,4 +1,5 @@
-<app-player *ngFor="let player of game.players; let i = index; " [ngStyle]="{'top.px': 100 + (i * labelSpacing)}" [playerActive]="i === game.currentPlayer" [moreThanFive]="game.players.length > 5" [name]="player" class="player-pos"></app-player>
+<app-player (click)="editPlayer(i)" *ngFor="let player of game.players; let i = index; " [ngStyle]="{'top.px': 100 + (i * labelSpacing)}" [playerActive]="i === game.currentPlayer" [moreThanFive]="game.players.length > 5" [name]="player" [playerImg]="game.playerImg[i]"
+    class="player-pos"></app-player>
 <!-- <app-player class="player-pos"></app-player> -->
 
 <div class="field">

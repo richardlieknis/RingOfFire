@@ -66,3 +66,11 @@ $rotationAngle: -5deg;
     bottom: 40px;
     right: 40px;
 }
+
+app-player,
+app-player-mobile {
+    cursor: pointer;
+    &:hover {
+        filter: brightness(1.1);
+    }
+}

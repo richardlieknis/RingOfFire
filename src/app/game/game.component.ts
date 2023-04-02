@@ -8,6 +8,8 @@ import { collection, collectionData, doc, Firestore, setDoc, docData, Collection
 import { from, Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { initializeApp } from '@angular/fire/app';
+import { EditPlayerComponent } from '../edit-player/edit-player.component';
+import { update } from '@firebase/database';
 
 @Component({
   selector: 'app-game',
@@ -45,9 +47,12 @@ export class GameComponent implements OnInit, OnChanges {
     const docRef = doc(this.gameCollection, id);
     const gameData = docData(docRef);
     gameData.subscribe((game: any) => {
+      this.game.pickCardAnimation = game.pickCardAnimation;
+      this.game.currentCard = game.currentCard;
       this.game.currentPlayer = game.currentPlayer;
       this.game.playedCard = game.playedCard;
       this.game.players = game.players;
+      this.game.playerImg = game.playerImg;
       this.game.stack = game.stack;
     })
   }
@@ -78,16 +83,28 @@ export class GameComponent implements OnInit, OnChanges {
     }
   }
 
-   openDialog(): void {
+  openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
      dialogRef.afterClosed().subscribe((name: string) => {
       if(name && name.length > 0){
         this.game.players.push(name);
+        this.game.playerImg.push('2.jpg');
         this.updateGame();
         }
      });
-   }
+  }
+  
+  editPlayer(playerId) {
+    console.log("Player ID: " + playerId);
+    const dialogRef = this.dialog.open(EditPlayerComponent);
+    dialogRef.afterClosed().subscribe((change: string) => {
+      if (!change) {
+        change = this.game.playerImg[playerId];
+      } else this.game.playerImg[playerId] = change; 
+      this.updateGame();
+     });
+  }
   
   updateGame() {
     const docRef = doc(this.gameCollection, this.gameId);
