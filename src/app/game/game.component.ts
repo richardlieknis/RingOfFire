@@ -19,7 +19,7 @@ import { update } from '@firebase/database';
   
 export class GameComponent implements OnInit, OnChanges {
   currentPlayer: number = 0;
-  labelSpacing: number = 90;
+  labelSpacing: number = 70;
   game: Game;
   gameId: string;
   items: Observable<any>;
@@ -66,8 +66,8 @@ export class GameComponent implements OnInit, OnChanges {
     
   }
 
-  takeCard(){
-    if (!this.game.pickCardAnimation && this.checkPlayerAmount() > 1) {
+  takeCard() {
+    if (!this.game.pickCardAnimation && this.checkPlayerAmount() > 1 && !this.gameIsOver()) {
         this.game.currentCard = this.game.stack.pop();
         this.game.pickCardAnimation = true;
         this.updateGame();
@@ -81,6 +81,12 @@ export class GameComponent implements OnInit, OnChanges {
     } else if (this.checkPlayerAmount() <= 1){
       this.openDialog();
     }
+  }
+
+  gameIsOver() {
+    if (this.game.stack.length === 0) {
+        return true;  
+    } else return false;
   }
 
   openDialog(): void {
@@ -99,9 +105,12 @@ export class GameComponent implements OnInit, OnChanges {
     console.log("Player ID: " + playerId);
     const dialogRef = this.dialog.open(EditPlayerComponent);
     dialogRef.afterClosed().subscribe((change: string) => {
-      if (!change) {
-        change = this.game.playerImg[playerId];
-      } else this.game.playerImg[playerId] = change; 
+      if (change) {
+        if (change === 'DELETE') {
+          this.game.players.splice(playerId, 1);
+          this.game.playerImg.splice(playerId, 1);
+        } else this.game.playerImg[playerId] = change; 
+      }
       this.updateGame();
      });
   }

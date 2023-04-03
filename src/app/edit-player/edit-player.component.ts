@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-player',
@@ -16,5 +17,11 @@ export class EditPlayerComponent {
     '7.jpg',
     '8.jpg',
   ]
+
+  constructor(public dialogRef: MatDialogRef<EditPlayerComponent>){}
+
+  onNoClick() {
+    this.dialogRef.close();
+  }
 
 }

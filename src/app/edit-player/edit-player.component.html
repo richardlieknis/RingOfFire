@@ -1,3 +1,10 @@
 <div class="edit-container">
-    <img [mat-dialog-close]="img" *ngFor="let img of allProfileImages" src="assets/img/profile/{{img}}">
+    <h1 mat-dialog-title>Edit Player</h1>
+    <div class="profile-images">
+        <img [mat-dialog-close]="img" *ngFor="let img of allProfileImages" src="assets/img/profile/{{img}}">
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Close</button>
+        <button mat-raised-button color="warn" [mat-dialog-close]="'DELETE'">DELETE</button>
+    </div>
 </div>

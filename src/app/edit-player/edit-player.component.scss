@@ -4,6 +4,14 @@
     padding: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 400px;
+}
+
+.profile-images {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 img {
