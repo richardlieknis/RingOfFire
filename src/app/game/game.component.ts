@@ -94,8 +94,10 @@ export class GameComponent implements OnInit, OnChanges {
   }
 
   showLastCard() {
-    this.lastCardDisplay = true;
-    this.lastCard = this.game.playedCard[this.game.playedCard.length - 2];
+    if (this.game.playedCard.length > 1){
+      this.lastCardDisplay = true;
+      this.lastCard = this.game.playedCard[this.game.playedCard.length - 2];
+    }
   }
 
   hideLastCard() {
