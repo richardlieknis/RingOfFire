@@ -46,7 +46,7 @@
 
       <div *ngIf="lastCardDisplay" class="last-card">
         <img src="assets/img/cards/{{ lastCard }}.png" />
-        <span>{{ gameInfoJson[0].title }}</span>
+        <span>{{ gameInfoJson[+this.lastCard.split("_")[1] - 1].title }}</span>
       </div>
 
       <!-- Current card (animation) -->
