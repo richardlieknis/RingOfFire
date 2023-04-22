@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import { initializeApp } from '@angular/fire/app';
 import { EditPlayerComponent } from '../edit-player/edit-player.component';
 import { update } from '@firebase/database';
+import { GameService } from 'src/services/game.service';
 
 @Component({
   selector: 'app-game',
@@ -18,19 +19,28 @@ import { update } from '@firebase/database';
 })
   
 export class GameComponent implements OnInit, OnChanges {
+  gameInfoJson: any;
   currentPlayer: number = 0;
   labelSpacing: number = 70;
+  lastCard: string;
+  lastCardDisplay: boolean = false;
   game: Game;
   gameId: string;
   items: Observable<any>;
   private gameCollection: CollectionReference<DocumentData>;
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog, private firestore: Firestore) {
+  constructor(
+    private route: ActivatedRoute,
+    public dialog: MatDialog,
+    private firestore: Firestore,
+    private gameService: GameService
+  ) {
     this.gameCollection = collection(this.firestore, 'games')
     this.items = collectionData(this.gameCollection);
   }
 
   ngOnInit(): void {
+    this.gameInfoJson = this.gameService.getGameInfo();
     this.newGame();
     this.route.params.subscribe((params) => {
       this.gameId = params['id'];
@@ -81,6 +91,15 @@ export class GameComponent implements OnInit, OnChanges {
     } else if (this.checkPlayerAmount() <= 1){
       this.openDialog();
     }
+  }
+
+  showLastCard() {
+    this.lastCardDisplay = true;
+    this.lastCard = this.game.playedCard[this.game.playedCard.length - 2];
+  }
+
+  hideLastCard() {
+    this.lastCardDisplay = false;
   }
 
   gameIsOver() {

@@ -37,7 +37,17 @@
         *ngFor="let card of game.playedCard"
         class="played-card"
         src="assets/img/cards/{{ card }}.png"
+        matTooltip="Show last card."
+        (mousedown)="showLastCard()"
+        (mouseup)="hideLastCard()"
       />
+
+      <!-- Show last card played -->
+
+      <div *ngIf="lastCardDisplay" class="last-card">
+        <img src="assets/img/cards/{{ lastCard }}.png" />
+        <span>{{ gameInfoJson[0].title }}</span>
+      </div>
 
       <!-- Current card (animation) -->
       <img
@@ -58,7 +68,7 @@
     (click)="openDialog()"
     style="background-color: #51be9f"
     class="btn-add"
-    matTooltip="Edit this player!"
+    matTooltip="Add a new player."
   >
     <mat-icon>add</mat-icon>
   </button>

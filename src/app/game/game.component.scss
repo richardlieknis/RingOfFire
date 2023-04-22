@@ -46,6 +46,25 @@ $rotationAngle: -5deg;
     transform: scale(1) rotate(0deg) translateY(-50px)translateX($dropCard);
 }
 
+.last-card {
+    right: 100px !important;
+    display: flex;
+    flex-direction: column;
+    span {
+        position: absolute;
+        right: -300px;
+        top: -50px;
+        font-size: 16px;
+        color: #111;
+        font-weight: bold;
+    }
+    img {
+        transform: scale(1) rotate(5deg) translateY(-20px)translateX($dropCard);
+        width: 60px !important;
+        opacity: 0.5;
+    }
+}
+
 @keyframes pickCardAnimation {
     0% {
         transform: scale(1) rotate($rotationAngle) translateY(-10px)

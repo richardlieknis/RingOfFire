@@ -1,12 +1,10 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-game-info',
-  templateUrl: './game-info.component.html',
-  styleUrls: ['./game-info.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class GameInfoComponent implements OnInit, OnChanges{
-  gameInfo = [
+export class GameService {
+  private gameInfo = [
     {title: 'Waterfall💧', description: 'Everyone has to start drinking at the same time. As soon as player 1 stops drinking, player 2 may stop drinking. Player 3 may stop as soon as player 2 stops drinking, and so on.' },
     {title: 'You🫵🏼', description: 'You decide who drinks' },
     {title: 'Me👈🏼', description: 'Congrats! Drink a shot!' },
@@ -22,22 +20,9 @@ export class GameInfoComponent implements OnInit, OnChanges{
     {title: 'Rule🚨', description: 'Make a rule. Everyone needs to drink when he breaks the rule.' },
   ];
 
-  title = 'Ring of Fire🔥';
-  description = 'Ring of Fire is a drinking game played with a standard deck of cards, with each card representing a specific action or rule. The game ends when all cards are drawn, with the last player to draw having to finish the cup in the center. Create min. 2 Players and pick a Card!';
+  constructor() {}
 
-  @Input() card: string;
-
-  constructor(){}
-
-  ngOnInit(): void {
-  }
-
-  ngOnChanges(): void {
-    if (this.card){
-      let cardNumber = +this.card.split('_')[1];
-      console.log(cardNumber);
-      this.title = this.gameInfo[cardNumber - 1].title;
-      this.description = this.gameInfo[cardNumber - 1].description;
-    }
+  getGameInfo() {
+    return this.gameInfo;
   }
 }
