@@ -17,13 +17,30 @@
     right: 250px;
 }
 
+.mobile-players {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 100px;
+    display: flex;
+    gap: 70px;
+    // width: clamp(200px, 60vw, 450px);
+    height: 110px;
+    overflow-x: auto;
+}
+
 .card-stack {
     position: relative;
     img {
         position: absolute;
         width: 120px;
     }
+    @media (max-height: 700px) {
+        transform: translateY(-100px) !important;
+    }
 }
+
+
 
 .top-card {
     cursor: pointer;
@@ -91,8 +108,8 @@ $rotationAngle: -5deg;
     .btn-add {
         bottom: unset !important;
         right: unset !important;
-        top: 40px;
-        left: 40px;
+        top: 20px;
+        left: 20px;
     }
 }
 

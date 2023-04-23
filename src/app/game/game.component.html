@@ -9,7 +9,16 @@
     [playerImg]="game.playerImg[i]"
     class="player-pos hide-desktop"
   ></app-player>
-  <!-- <app-player class="player-pos"></app-player> -->
+  <div class="mobile-players">
+    <app-player-mobile
+      (click)="editPlayer(i)"
+      *ngFor="let player of game.players; let i = index"
+      [playerActive]="i === game.currentPlayer"
+      [name]="player"
+      [playerImg]="game.playerImg[i]"
+      class="hide-mobile"
+    ></app-player-mobile>
+  </div>
 </div>
 
 <div *ngIf="gameIsOver()" class="game-over-overlay">GAME OVER</div>
