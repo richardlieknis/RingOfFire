@@ -1,6 +1,29 @@
 <div class="start-screen">
-    <img src="assets/img/startbox.png">
+  <div class="header">
+    <img class="head-img" src="assets/img/start_header.png" />
     <div class="start-label-box">
-        <img (click)="newGame()" src="assets/img/startlabel.png">
+      <!-- JOIN LOBBY -->
+      <div class="joinlobby">
+        <div class="lobby-box">
+          <h2>Current Games</h2>
+          <div class="current-games">
+            <!-- TEST GAME 1 -->
+            <div class="game">
+              <div class="id">ID: 13372323hiuhiu230929023932</div>
+              <div class="players">Players: 5</div>
+            </div>
+            <!-- TEST GAME 2 -->
+            <div class="game">
+              <div class="id">ID: 1337</div>
+              <div class="players">Players: 5</div>
+            </div>
+            <!-- TEST ENDE -->
+          </div>
+        </div>
+        <img (click)="joinGame()" src="assets/img/joinlabel.png" />
+      </div>
+      <!-- JOIN LOBBY ENDE -->
+      <img (click)="newGame()" src="assets/img/startlabel.png" />
     </div>
+  </div>
 </div>

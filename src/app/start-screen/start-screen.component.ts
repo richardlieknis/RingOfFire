@@ -23,7 +23,10 @@ ngOnInit() {
     let game = new Game();
     addDoc((this.gameCollection), game.toJson()).then((gameInfo: any) => {
       this.router.navigateByUrl("/game/" + gameInfo.id);
-  }); 
+  });   
+  }
   
-}
+  joinGame() {
+    console.log("JOIN");
+  }
 }
