@@ -23,7 +23,7 @@
     align-items: center;
     flex-direction: column;
     img {
-        width: 200px;
+        width: 250px;
         height: auto;
         &:hover {
             cursor: pointer;
@@ -33,11 +33,15 @@
 }
 
 .joinlobby {
-    width: 200px;
+    width: 250px;
+    position: relative;
     
 }
 
 .lobby-box {
+    position: absolute;
+    bottom: 70px;
+    width: 230px;
     text-align: center;
     background-color: #151515aa;
     color: aliceblue;
@@ -48,7 +52,7 @@
         margin: unset;
     }
     .current-games {
-        max-height: 200px;
+        max-height: 150px;
         overflow-x: auto;
             .game {
             display: flex;

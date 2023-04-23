@@ -26,7 +26,6 @@ export class GameComponent implements OnInit, OnChanges {
   lastCardDisplay: boolean = false;
   game: Game;
   gameId: string;
-  items: Observable<any>;
   private gameCollection: CollectionReference<DocumentData>;
 
   constructor(
@@ -35,8 +34,7 @@ export class GameComponent implements OnInit, OnChanges {
     private firestore: Firestore,
     private gameService: GameService
   ) {
-    this.gameCollection = collection(this.firestore, 'games')
-    this.items = collectionData(this.gameCollection);
+    this.gameCollection = collection(this.firestore, 'games');
   }
 
   ngOnInit(): void {

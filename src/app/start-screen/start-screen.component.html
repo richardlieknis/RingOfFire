@@ -4,23 +4,21 @@
     <div class="start-label-box">
       <!-- JOIN LOBBY -->
       <div class="joinlobby">
-        <div class="lobby-box">
+        <div *ngIf="showLobby" class="lobby-box">
           <h2>Current Games</h2>
           <div class="current-games">
             <!-- TEST GAME 1 -->
-            <div class="game">
-              <div class="id">ID: 13372323hiuhiu230929023932</div>
-              <div class="players">Players: 5</div>
+            <div
+              class="game"
+              *ngFor="let game of existingGameId; let i = index"
+              (click)="joinGame(existingGameId[i])"
+            >
+              <div class="id">ID: {{ existingGameId[i] }}</div>
+              <div class="players">Players: {{ existingGamePlayers[i] }}</div>
             </div>
-            <!-- TEST GAME 2 -->
-            <div class="game">
-              <div class="id">ID: 1337</div>
-              <div class="players">Players: 5</div>
-            </div>
-            <!-- TEST ENDE -->
           </div>
         </div>
-        <img (click)="joinGame()" src="assets/img/joinlabel.png" />
+        <img (click)="toggleLobby()" src="assets/img/joinlabel.png" />
       </div>
       <!-- JOIN LOBBY ENDE -->
       <img (click)="newGame()" src="assets/img/startlabel.png" />
