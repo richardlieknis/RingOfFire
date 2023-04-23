@@ -21,7 +21,9 @@
   </div>
 </div>
 
-<div *ngIf="gameIsOver()" class="game-over-overlay">GAME OVER</div>
+<div *ngIf="gameIsOver()" (click)="backToLobby()" class="game-over-overlay">
+  GAME OVER
+</div>
 
 <div *ngIf="!gameIsOver()">
   <div class="field">
@@ -72,14 +74,25 @@
 
   <app-game-info [card]="game.currentCard"></app-game-info>
 
-  <button
-    mat-fab
-    color="warn"
-    (click)="openDialog()"
-    style="background-color: #51be9f"
-    class="btn-add"
-    matTooltip="Add a new player."
-  >
-    <mat-icon>add</mat-icon>
-  </button>
+  <div class="buttons">
+    <button
+      mat-fab
+      color="warn"
+      (click)="openDialog()"
+      style="background-color: #51be9f"
+      matTooltip="Add a new player."
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button
+      mat-fab
+      color="warn"
+      (click)="backToLobby()"
+      style="background-color: #51be9f"
+      matTooltip="Back to lobby."
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
 </div>

@@ -98,14 +98,18 @@ $rotationAngle: -5deg;
     }
 }
 
-.btn-add {
+.buttons {
     position: absolute;
     bottom: 40px;
     right: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @media (max-width: 770px){
-    .btn-add {
+    .buttons {
         bottom: unset !important;
         right: unset !important;
         top: 20px;

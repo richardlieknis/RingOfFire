@@ -6,7 +6,7 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 import { DialogShowErrorComponent } from '../dialog-show-error/dialog-show-error.component';
 import { collection, collectionData, doc, Firestore, setDoc, docData, CollectionReference, DocumentData, getFirestore } from '@angular/fire/firestore';
 import { from, Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { initializeApp } from '@angular/fire/app';
 import { EditPlayerComponent } from '../edit-player/edit-player.component';
 import { update } from '@firebase/database';
@@ -29,6 +29,7 @@ export class GameComponent implements OnInit, OnChanges {
   private gameCollection: CollectionReference<DocumentData>;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     public dialog: MatDialog,
     private firestore: Firestore,
@@ -71,7 +72,10 @@ export class GameComponent implements OnInit, OnChanges {
 
   newGame() {
     this.game = new Game();;
-    
+  }
+
+  backToLobby() {
+    this.router.navigateByUrl("/");
   }
 
   takeCard() {
