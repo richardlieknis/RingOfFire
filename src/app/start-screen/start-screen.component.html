@@ -13,8 +13,10 @@
               *ngFor="let game of existingGameId; let i = index"
               (click)="joinGame(existingGameId[i])"
             >
-              <div class="id">ID: {{ existingGameId[i] }}</div>
-              <div class="players">Players: {{ existingGamePlayers[i] }}</div>
+              <div class="id"><span>ID:</span> {{ existingGameId[i] }}</div>
+              <div class="players">
+                <span>Players:</span> {{ existingGamePlayers[i] }}
+              </div>
             </div>
           </div>
         </div>

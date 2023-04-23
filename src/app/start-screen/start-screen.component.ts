@@ -40,7 +40,7 @@ constructor(private router: Router, private firestore: Firestore){
   }
   
   joinGame(gameId) {
-    console.log(gameId);
+    this.router.navigateByUrl("/game/" + gameId);
   }
 
   toggleLobby() {
