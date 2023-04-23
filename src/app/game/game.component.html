@@ -21,8 +21,9 @@
   </div>
 </div>
 
-<div *ngIf="gameIsOver()" (click)="backToLobby()" class="game-over-overlay">
-  GAME OVER
+<div *ngIf="gameIsOver()" class="game-over-overlay">
+  <span>GAME OVER</span>
+  <span class="back" (click)="backToLobby()">BACK TO LOBBY</span>
 </div>
 
 <div *ngIf="!gameIsOver()">

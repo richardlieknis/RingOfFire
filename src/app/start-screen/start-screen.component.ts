@@ -24,15 +24,12 @@ constructor(private router: Router, private firestore: Firestore){
     collectionData(this.gameCollection, { idField: 'id' }).subscribe((data) => {
       data.forEach(game => {
         this.existingGameId.push(game['id']);        
-        this.existingGamePlayers.push(game['players'].length);        
-
+        this.existingGamePlayers.push(game['players'].length);
       })
     })
-    console.log(this.existingGameId);
-    console.log(this.existingGamePlayers);
-
   }
   newGame() {
+    this.showLobby = false;
     let game = new Game();
     addDoc((this.gameCollection), game.toJson()).then((gameInfo: any) => {
       this.router.navigateByUrl("/game/" + gameInfo.id);

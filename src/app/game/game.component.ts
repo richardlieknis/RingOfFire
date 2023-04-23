@@ -125,7 +125,6 @@ export class GameComponent implements OnInit, OnChanges {
   }
   
   editPlayer(playerId) {
-    console.log("Player ID: " + playerId);
     const dialogRef = this.dialog.open(EditPlayerComponent);
     dialogRef.afterClosed().subscribe((change: string) => {
       if (change) {
