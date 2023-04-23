@@ -1,5 +1,5 @@
 .field {
-    background-image: url("/assets/img/board.jpg");
+    background-image: url(../../assets/img/board.jpg);
     max-width: 100%;
     height: 100vh;
     display: flex;
@@ -47,20 +47,21 @@ $rotationAngle: -5deg;
 }
 
 .last-card {
-    right: 100px !important;
+    position: absolute;
+    right: 90px;
     display: flex;
     flex-direction: column;
     span {
         position: absolute;
-        right: -300px;
-        top: -50px;
+        width: 200px;
         font-size: 16px;
-        color: #111;
+        color: #51BE9F;
         font-weight: bold;
+        transform: scale(1) translateY(260px)translateX(145px);
     }
     img {
-        transform: scale(1) rotate(5deg) translateY(-20px)translateX($dropCard);
-        width: 60px !important;
+        transform: scale(0.6) translateY(-20px)translateX($dropCard);
+        top: 120px;
         opacity: 0.5;
     }
 }
@@ -84,6 +85,15 @@ $rotationAngle: -5deg;
     position: absolute;
     bottom: 40px;
     right: 40px;
+}
+
+@media (max-width: 770px){
+    .btn-add {
+        bottom: unset !important;
+        right: unset !important;
+        top: 40px;
+        left: 40px;
+    }
 }
 
 .game-over-overlay {

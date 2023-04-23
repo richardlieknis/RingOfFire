@@ -10,7 +10,42 @@ body {
     
 }
 
+@media (max-width: 900px){
+    .hide-desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 900px){
+    .hide-mobile {
+        display: none;
+    }
+}
+
 @font-face {
     font-family: 'poppins';
     src: url(assets/fonts/Poppins.ttf);
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #e2e2e2 #ffffff00;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #e2e2e2;
+    border-radius: 0px;
+    border: 0px none #21de2f;
 }

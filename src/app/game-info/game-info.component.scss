@@ -3,8 +3,8 @@
     bottom: 32px;
     right: 0px;
     left: 0px;
-    height: 160px;
-    padding: 10px 20px;
+    height: 150px;
+    padding: 10px clamp(5px, 5vw, 20px);
     color: aliceblue;
     max-width: 1000px;
     margin-left: 120px;
@@ -12,6 +12,15 @@
 }
 
 .card-content {
-    font-size: 18px;
+    font-size: clamp(12px, 4vw, 18px);
     text-align: justify;
+    overflow-y: auto;
+}
+
+@media (max-width: 770px) {
+    .card {
+        bottom: 0 !important;
+        margin-left: unset;
+        margin-right: unset;
+    }
 }
